@@ -6,40 +6,56 @@
 <body>
   <div id="test"></div>
   <div class="viewer">
-    <div class="reel">
-      <div class="two reel-item">2</div>
+    <div class="reel" id="reel-1">
       <div class="three reel-item">3</div>
+      <div class="two reel-item">2</div>
       <div class="one reel-item">1</div>
-      <div class="two reel-item">2</div>
       <div class="three reel-item">3</div>
+      <div class="two reel-item">2</div>
       <div class="one reel-item">1</div>
     </div>
     <div class="reel blank"></div>
-    <div class="reel">
+    <div class="reel" id="reel-2">
       <div class="one reel-item">1</div>
-      <div class="two reel-item">2</div>
       <div class="three reel-item">3</div>
+      <div class="two reel-item">2</div>
       <div class="one reel-item">1</div>
-      <div class="two reel-item">2</div>
       <div class="three reel-item">3</div>
+      <div class="two reel-item">2</div>
     </div>
     <div class="reel blank"></div>
-    <div class="reel">
-      <div class="three reel-item">3</div>
-      <div class="one reel-item">1</div>
+    <div class="reel" id="reel-3">
       <div class="two reel-item">2</div>
-      <div class="three reel-item">3</div>
       <div class="one reel-item">1</div>
+      <div class="three reel-item">3</div>
       <div class="two reel-item">2</div>
+      <div class="one reel-item">1</div>
+      <div class="three reel-item">3</div>
     </div>
   </div>
+  <button id="rerun">Start/Stop</button>
   <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
   <script type="text/javascript">
     $.noConflict();
   </script>
   <script type="text/javascript">
     jQuery( document ).ready( function() {
-      // console.log("ready");
+      var reel1 = document.getElementById('reel-1');
+      var reel2 = document.getElementById('reel-2');
+      var reel3 = document.getElementById('reel-3');
+      var button = document.getElementById("rerun");
+      var running = false;
+      button.addEventListener("click", function() {
+        if (running) {
+          state = "running";
+        } else {
+          state = "paused";
+        }
+        reel1.style.webkitAnimationPlayState = state;
+        reel2.style.webkitAnimationPlayState = state;
+        reel3.style.webkitAnimationPlayState = state;
+        running = !running;
+      });
     })
   </script>
 </body>

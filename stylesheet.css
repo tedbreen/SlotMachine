@@ -17,8 +17,8 @@ div.reel {
   position: relative;
   top: -300px;
   display: inline-block;
-  /*-webkit-animation-name: slideDown;*/
-  -webkit-animation-duration: 0.75s;
+  -webkit-animation-name: slideDown;
+  -webkit-animation-duration: 1s;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
   /*-moz-animation-name: slideDown;*/
