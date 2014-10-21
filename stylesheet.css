@@ -1,0 +1,61 @@
+html, body, div {
+  margin: 0px;
+  padding: 0px;
+}
+div.viewer {
+  text-align: center;
+  border: 1px solid black;
+  height: 120px;
+  width: 480px;
+  overflow: hidden;
+  position: fixed;
+  top: 440px;
+}
+div.reel {
+  /*border: 1px solid black;*/
+  width: 80px;
+  position: relative;
+  top: -300px;
+  display: inline-block;
+  /*-webkit-animation-name: slideDown;*/
+  -webkit-animation-duration: 0.75s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  /*-moz-animation-name: slideDown;*/
+  /*-moz-animation-duration: 0.75;*/
+  /*-moz-animation-timing-function: linear;*/
+  /*-mox-animation-iteration-count: infinite;*/
+}
+@-webkit-keyframes slideDown {
+  from {
+    top: -300px;
+  }
+  to {
+    top: -60px;
+  }
+}
+@-moz-keyframes slideDown {
+  from {
+    top: -300px;
+  }
+  to {
+    top: -60px;
+  }
+}
+div.blank {
+  width: 40px;
+}
+div.reel-item {
+  padding-top: 15px;
+  /*border: 1px solid black;*/
+  width: 80px;
+  height: 65px;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: white;
+  text-align: center;
+}
+div.one { background-color: red }
+div.two { background-color: blue }
+div.three { background-color: green }
