@@ -33,7 +33,7 @@
       <div class="three reel-item">3</div>
     </div>
   </div>
-  <button id="rerun">Start/Stop</button>
+  <button id="btn-one">Reel 1</button><button id="btn-two">Reel 2</button><button id="btn-three">Reel 3</button>
   <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
   <script type="text/javascript">
     $.noConflict();
@@ -43,18 +43,35 @@
       var reel1 = document.getElementById('reel-1');
       var reel2 = document.getElementById('reel-2');
       var reel3 = document.getElementById('reel-3');
-      var button = document.getElementById("rerun");
-      var running = false;
-      button.addEventListener("click", function() {
-        if (running) {
-          state = "running";
-        } else {
-          state = "paused";
-        }
+
+      reel1.style.webkitAnimationPlayState = "paused";
+      reel2.style.webkitAnimationPlayState = "paused";
+      reel3.style.webkitAnimationPlayState = "paused";
+
+      var btn1 = document.getElementById("btn-one");
+      var btn2 = document.getElementById("btn-two");
+      var btn3 = document.getElementById("btn-three");
+
+      var runStates = {
+        btn1: true,
+        btn2: true,
+        btn3: true
+      };
+
+      btn1.addEventListener("click", function() {
+        var state = runStates.btn1 ? "running" : "paused";
         reel1.style.webkitAnimationPlayState = state;
+        runStates.btn1 = !runStates.btn1;
+      });
+      btn2.addEventListener("click", function() {
+        var state = runStates.btn2 ? "running" : "paused";
         reel2.style.webkitAnimationPlayState = state;
+        runStates.btn2 = !runStates.btn2;
+      });
+      btn3.addEventListener("click", function() {
+        var state = runStates.btn3 ? "running" : "paused";
         reel3.style.webkitAnimationPlayState = state;
-        running = !running;
+        runStates.btn3 = !runStates.btn3;
       });
     })
   </script>
