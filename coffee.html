@@ -1,70 +1,47 @@
 <!DOCTYPE>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <link rel="stylesheet" type="text/css" href="css\stylesheet.css">
 </head>
 <body>
-  <div id="test"></div>
+  <div class="title">Coffee Slots!</div>
   <div class="viewer">
     <div class="reel" id="reel-1">
+      <div class="two reel-item">2</div>
+      <div class="one reel-item">1</div>
+      <div class="three reel-item">3</div>
+      <div class="two reel-item">2</div>
+      <div class="one reel-item">1</div>
+      <div class="three reel-item">3</div>
+    </div><div class="reel" id="reel-2">
       <div class="three reel-item">3</div>
       <div class="two reel-item">2</div>
       <div class="one reel-item">1</div>
       <div class="three reel-item">3</div>
       <div class="two reel-item">2</div>
       <div class="one reel-item">1</div>
+    </div><div class="reel" id="reel-3">
+      <div class="one reel-item">1</div>
+      <div class="three reel-item">3</div>
+      <div class="two reel-item">2</div>
+      <div class="one reel-item">1</div>
+      <div class="three reel-item">3</div>
+      <div class="two reel-item">2</div>
     </div>
-    <div class="reel blank"></div>
-    <div class="reel" id="reel-2">
-      <div class="three reel-item">3</div>
-      <div class="two reel-item">2</div>
-      <div class="one reel-item">1</div>
-      <div class="three reel-item">3</div>
-      <div class="two reel-item">2</div>
-      <div class="one reel-item">1</div>
-    </div>
-    <div class="reel blank"></div>
-    <div class="reel" id="reel-3">
-      <div class="three reel-item">3</div>
-      <div class="two reel-item">2</div>
-      <div class="one reel-item">1</div>
-      <div class="three reel-item">3</div>
-      <div class="two reel-item">2</div>
-      <div class="one reel-item">1</div>
-    </div>
-  </div>
-  <button id="btn-one">Pull</button>
-  <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+  </div><div class="lever"><button id="btn-pull">Pull lever</button></div>
+  <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="js/check_result.js"></script>
+  <script type="text/javascript" src="js/generate_result.js"></script>
+  <script type="text/javascript" src="js/prepare_machine.js"></script>
   <script type="text/javascript">
     $.noConflict();
   </script>
   <script type="text/javascript">
     jQuery( document ).ready( function() {
-      var reel1 = document.getElementById('reel-1');
-      var reel2 = document.getElementById('reel-2');
-      var reel3 = document.getElementById('reel-3');
-
-      // sample slot results
-      reel1.style.top = "-300px";
-      reel2.style.top = "-300px";
-      reel3.style.top = "-220px";
-
-      reel1.style.webkitAnimationPlayState = "paused";
-      reel2.style.webkitAnimationPlayState = "paused";
-      reel3.style.webkitAnimationPlayState = "paused";
-
-      var btn1 = document.getElementById("btn-one");
-
-      var runStates = {
-        btn1: true,
-      };
-
-      btn1.addEventListener("click", function() {
-        reel1.style.webkitAnimationPlayState = "running";
-        reel2.style.webkitAnimationPlayState = "running";
-        reel3.style.webkitAnimationPlayState = "running";
-      });
-    })
+        var result = generateResult();
+        prepareMachine( result );
+        console.log( checkResult(result) );
+    });
   </script>
 </body>
 </html>
