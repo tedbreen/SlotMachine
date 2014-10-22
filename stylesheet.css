@@ -12,20 +12,41 @@ div.viewer {
   top: 440px;
 }
 div.reel {
-  /*border: 1px solid black;*/
   width: 80px;
   position: relative;
-  top: -300px;
   display: inline-block;
+}
+div#reel-1 {
   -webkit-animation-name: slideDown;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 0.25s;
+  -webkit-animation-iteration-count: 10;
   -webkit-animation-timing-function: linear;
   /*-moz-animation-name: slideDown;*/
   /*-moz-animation-duration: 0.75;*/
   /*-moz-animation-timing-function: linear;*/
   /*-mox-animation-iteration-count: infinite;*/
 }
+div#reel-2 {
+  -webkit-animation-name: slideDown;
+  -webkit-animation-duration: 0.25s;
+  -webkit-animation-iteration-count: 20;
+  -webkit-animation-timing-function: linear;
+  /*-moz-animation-name: slideDown;*/
+  /*-moz-animation-duration: 0.75;*/
+  /*-moz-animation-timing-function: linear;*/
+  /*-mox-animation-iteration-count: infinite;*/
+}
+div#reel-3 {
+  -webkit-animation-name: slideDown;
+  -webkit-animation-duration: 0.25s;
+  -webkit-animation-iteration-count: 30;
+  -webkit-animation-timing-function: linear;
+  /*-moz-animation-name: slideDown;*/
+  /*-moz-animation-duration: 0.75;*/
+  /*-moz-animation-timing-function: linear;*/
+  /*-mox-animation-iteration-count: infinite;*/
+}
+
 @-webkit-keyframes slideDown {
   from {
     top: -300px;
