@@ -19,10 +19,15 @@ div.viewer {
   overflow: hidden;
   margin: 0px auto;
 }
-div.lever {
+div.button {
   text-align: center;
   padding: 20px;
   border: 1px solid red;
+}
+button#btn-pull {
+  width: 120px;
+  height: 40px;
+  font-size: 20px;
 }
 div#result {
   width: 260px;
@@ -34,8 +39,8 @@ div#result {
   padding-top: 40px;
   border: 1px solid red;
 }
-button#btn-pull {
-  width: 120px;
+button#btn-reset {
+  width: 140px;
   height: 40px;
   font-size: 20px;
 }
