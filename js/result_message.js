@@ -1,32 +1,36 @@
 function resetGame() {
+    console.log("resetGame() invoked");
     var resetDiv = document.getElementById('btn-reset-container');
     resetDiv.style.display = "none";
-    var msg = document.getElementById('result');
+    var msg = document.getElementById('result-display');
     msg.innerHTML = "";
     // enable pull lever button
     var leverButton = document.getElementById('btn-pull');
     leverButton.removeAttribute('disabled');
-
-    var reel1 = document.getElementById('reel-1-temp');
-    var reel2 = document.getElementById('reel-2-temp');
-    var reel3 = document.getElementById('reel-3-temp');
-
-    result = generateResult();  // result is a global variable
     // change reels back
-    reel1.id = 'reel-1';
-    reel2.id = 'reel-2';
-    reel3.id = 'reel-3';
     if ((reel1.id = 'reel-1') && (reel2.id = 'reel-2') && (reel3.id = 'reel-3')) {
-        prepareMachine(result);
+        if (reel1.style.webkitAnimationPlayState == "running") {
+            reel1.style.webkitAnimationPlayState = "paused";
+            reel2.style.webkitAnimationPlayState = "paused";
+            reel3.style.webkitAnimationPlayState = "paused";    
+        }
+        prepareMachine( generateResult() );
     } else {
-        console.log("FAIL");
+        console.log("well that didn't work");
     }
 }
 
 function resultMessage(message) {
-    var msg = document.getElementById('result');
+    console.log("resultMessage() invoked");
+    var msg = document.getElementById('result-display');
     msg.innerHTML = message;
     var resetDiv = document.getElementById('btn-reset-container');
     resetDiv.style.display = "block";
-    // add event listener to play again button
+    var resetDivClone = resetDiv.cloneNode(true);
+    resetDiv.parentNode.replaceChild(resetDivClone, resetDiv);
+    var resetBtn = document.getElementById('btn-reset');
+    console.log("event listener added: resetGame()");
+    resetBtn.addEventListener('click', function() {
+        resetGame();
+    });
 }
