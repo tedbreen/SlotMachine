@@ -1,3 +1,21 @@
+function pullLever(reel1, reel2, reel3, spinResults, button) {
+    reel1.style.webkitAnimationPlayState = "running";
+    reel2.style.webkitAnimationPlayState = "running";
+    reel3.style.webkitAnimationPlayState = "running";
+
+    reel1.style.top = spinResults[0];
+    reel2.style.top = spinResults[1];
+    reel3.style.top = spinResults[2];
+
+    button.setAttribute("disabled", "");
+    window.setTimeout( function () {
+        reel1.id = 'reel-1-temp';
+        reel2.id = 'reel-2-temp';
+        reel3.id = 'reel-3-temp';
+        resultMessage( checkResult(result) );
+    }, 8500 );
+}
+
 function prepareMachine(result) {
     var reel1 = document.getElementById('reel-1');
     var reel2 = document.getElementById('reel-2');
@@ -22,18 +40,6 @@ function prepareMachine(result) {
     var btn = document.getElementById("btn-pull");
 
     btn.addEventListener("click", function() {
-        reel1.style.webkitAnimationPlayState = "running";
-        reel2.style.webkitAnimationPlayState = "running";
-        reel3.style.webkitAnimationPlayState = "running";
-
-        reel1.style.top = thisSpin[0];
-        reel2.style.top = thisSpin[1];
-        reel3.style.top = thisSpin[2];
-
-        btn.setAttribute("disabled", "");
-        window.setTimeout( function () {
-            resultMessage( checkResult(result) );
-        }, 8500 );
-        
+        pullLever(reel1, reel2, reel3, thisSpin, btn);
     });
 }
