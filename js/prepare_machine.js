@@ -31,5 +31,9 @@ function prepareMachine(result) {
         reel3.style.top = thisSpin[2];
 
         btn.setAttribute("disabled", "");
+        window.setTimeout( function () {
+            resultMessage( checkResult(result) );
+        }, 8500 );
+        
     });
 }

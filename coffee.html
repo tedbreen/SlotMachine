@@ -29,9 +29,11 @@
       <div class="two reel-item">2</div>
     </div>
   </div><div class="lever"><button id="btn-pull">Pull lever</button></div>
+  <div id="result"></div>
   <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
   <script type="text/javascript" src="js/check_result.js"></script>
   <script type="text/javascript" src="js/generate_result.js"></script>
+  <script type="text/javascript" src="js/result_message.js"></script>
   <script type="text/javascript" src="js/prepare_machine.js"></script>
   <script type="text/javascript">
     $.noConflict();
@@ -40,7 +42,6 @@
     jQuery( document ).ready( function() {
         var result = generateResult();
         prepareMachine( result );
-        console.log( checkResult(result) );
     });
   </script>
 </body>
