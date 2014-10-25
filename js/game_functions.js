@@ -41,7 +41,7 @@ function pullLever(reel1, reel2, reel3, button, result) {
         reel2.id = 'reel-2-temp';
         reel3.id = 'reel-3-temp';
         resultMessage( checkResult(result) );
-    }, 8500 );
+    }, 8000 );
 }
 
 function checkResult(result) {
@@ -53,7 +53,7 @@ function checkResult(result) {
     } else if ((result[0] === 2) && (result[1] === 2) && (result[2] === 2)) {
         return "You win a cup of tea!";
     } else {
-        return "You win an empty glass!";
+        return "You lose! No hot drinks for you!";
     }
 }
 

@@ -6,7 +6,7 @@ div.title {
   font-family: sans-serif;
   font-size: 80px;
   margin: 0px auto;
-  width: 500px;
+  /*width: 500px;*/
   padding: 10px;
   text-align: center;
   border: 1px solid red;
@@ -14,9 +14,7 @@ div.title {
 div.viewer {
   text-align: center;
   border: 10px solid black;
-  /*width: 260px;*/
   width: 380px;
-  /*height: 120px;*/
   height: 180px;
   overflow: hidden;
   margin: 0px auto;
@@ -32,9 +30,7 @@ button#btn-pull {
   font-size: 20px;
 }
 div#result-display {
-  width: 260px;
   height: 80px;
-  margin: 0px auto;
   text-align: center;
   font-family: sans-serif;
   font-size: 40px;
