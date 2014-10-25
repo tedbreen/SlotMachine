@@ -46,10 +46,15 @@ function pullLever(reel1, reel2, reel3, button, result) {
 
 function checkResult(result) {
     console.log("4) checkResult()");
-    if ( (result[0] !== result[1]) || (result[0] !== result[2]) ) {
-        return "You lose";
+    if ((result[0] === 0) && (result[1] === 0) && (result[2] === 0)) {
+        return "You win a cup of coffee!";
+    } else if ((result[0] === 1) && (result[1] === 1) && (result[2] === 1)) {
+        return "You win a shot of espresso!";
+    } else if ((result[0] === 2) && (result[1] === 2) && (result[2] === 2)) {
+        return "You win a cup of tea!";
+    } else {
+        return "You win an empty glass!";
     }
-    return "You win";
 }
 
 function resultMessage(message) {
