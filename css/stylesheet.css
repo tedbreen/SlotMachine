@@ -18,7 +18,7 @@ div.viewer {
   width: 380px;
   /*height: 120px;*/
   height: 180px;
-  /*overflow: hidden;*/
+  overflow: hidden;
   margin: 0px auto;
 }
 div.button {
@@ -78,10 +78,10 @@ div#reel-3 {
 }
 @-webkit-keyframes slideDown {
   from {
-    top: 0px;
+    top: -450px;
   }
   to {
-    top: 360px;
+    top: -90px;
   }
 }
 div.reel-item {
