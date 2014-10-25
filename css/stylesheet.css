@@ -14,9 +14,11 @@ div.title {
 div.viewer {
   text-align: center;
   border: 10px solid black;
-  width: 260px;
-  height: 120px;
-  overflow: hidden;
+  /*width: 260px;*/
+  width: 380px;
+  /*height: 120px;*/
+  height: 180px;
+  /*overflow: hidden;*/
   margin: 0px auto;
 }
 div.button {
@@ -76,29 +78,15 @@ div#reel-3 {
 }
 @-webkit-keyframes slideDown {
   from {
-    top: -300px;
+    top: 0px;
   }
   to {
-    top: -60px;
-  }
-}
-@-moz-keyframes slideDown {
-  from {
-    top: -300px;
-  }
-  to {
-    top: -60px;
+    top: 360px;
   }
 }
 div.reel-item {
-  padding-top: 15px;
-  width: 80px;
-  height: 65px;
-  font-size: 40px;
-  font-weight: bold;
-  font-family: sans-serif;
-  color: white;
-  text-align: center;
+  width: 120px;
+  height: 120px;
 }
 div.one {
   background-color: red
