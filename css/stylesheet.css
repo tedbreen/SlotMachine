@@ -39,9 +39,6 @@ div#result-display {
   padding-top: 40px;
   border: 1px solid red;
 }
-div#btn-reset-container {
-  display: none;
-}
 button#btn-reset {
   width: 140px;
   height: 40px;
