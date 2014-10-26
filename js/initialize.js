@@ -7,6 +7,9 @@
     reel1.style.webkitAnimationPlayState = "paused";
     reel2.style.webkitAnimationPlayState = "paused";
     reel3.style.webkitAnimationPlayState = "paused";
+    reel1.style.animationPlayState = "paused";
+    reel2.style.animationPlayState = "paused";
+    reel3.style.animationPlayState = "paused";
     slotSettings = {
         left: ["-450px", "-330px", "-210px"],
         middle: ["-210px", "-450px", "-330px"],

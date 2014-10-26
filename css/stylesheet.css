@@ -58,6 +58,10 @@ div#reel-1 {
   -webkit-animation-duration: 0.25s;
   -webkit-animation-iteration-count: 6;
   -webkit-animation-timing-function: linear;
+  -moz-animation-name: slideDown;
+  -moz-animation-duration: 0.25s;
+  -moz-animation-iteration-count: 6;
+  -moz-animation-timing-function: linear;
 }
 div#reel-2 {
   border-width: 0px 10px;
@@ -67,6 +71,10 @@ div#reel-2 {
   -webkit-animation-duration: 0.25s;
   -webkit-animation-iteration-count: 12;
   -webkit-animation-timing-function: linear;
+  -moz-animation-name: slideDown;
+  -moz-animation-duration: 0.25s;
+  -moz-animation-iteration-count: 12;
+  -moz-animation-timing-function: linear;
 }
 div#reel-2-temp {
   border-width: 0px 10px;
@@ -78,8 +86,20 @@ div#reel-3 {
   -webkit-animation-duration: 0.25s;
   -webkit-animation-iteration-count: 18;
   -webkit-animation-timing-function: linear;
+  -moz-animation-name: slideDown;
+  -moz-animation-duration: 0.25s;
+  -moz-animation-iteration-count: 18;
+  -moz-animation-timing-function: linear;
 }
 @-webkit-keyframes slideDown {
+  from {
+    top: -450px;
+  }
+  to {
+    top: -90px;
+  }
+}
+@-moz-keyframes slideDown {
   from {
     top: -450px;
   }
