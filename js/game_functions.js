@@ -62,21 +62,29 @@ function resultMessage(message) {
     var msg = document.getElementById('result-display');
     msg.innerHTML = message;
     var resetDiv = document.getElementById('btn-reset-container');
-    // resetDiv.style.display = "block";
     var resetDivClone = resetDiv.cloneNode(true);
     resetDiv.parentNode.replaceChild(resetDivClone, resetDiv);
     var resetBtn = document.getElementById('btn-reset');
     resetBtn.removeAttribute('disabled');
     console.log("event listener added: resetGame()");
     resetBtn.addEventListener('click', function() {
+        resetReels();
+    });
+}
+
+function resetReels() {
+    console.log("6) resetReels()");
+    jQuery('div#reel-1-temp').animate({ top: "-450px"});
+    jQuery('div#reel-2-temp').animate({ top: "-450px"});
+    jQuery('div#reel-3-temp').animate({
+        top: "-450px"
+    }, 1000, function() {
         resetGame();
     });
 }
 
 function resetGame() {
-    console.log("6) resetGame()");
-    // var resetDiv = document.getElementById('btn-reset-container');
-    // resetDiv.style.display = "none";
+    console.log("7) resetGame()");
     var msg = document.getElementById('result-display');
     msg.innerHTML = "";
     // enable pull lever button
