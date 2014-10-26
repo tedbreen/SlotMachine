@@ -2,12 +2,19 @@ function generateResult() {
     console.log("CoffeeSlots is ready!");
     console.log("1) generateResult()");
     var result = [];
-    for(var i = 0; i < 3; i++) {
-        result.push(
-            Math.floor( Math.random() * 2.999 )
-        );
+    var winOrLose = Math.round(Math.random());
+    if (winOrLose === 0) {
+        // you don't automatically win
+        for(var i = 0; i < 3; i++) {
+            result.push(
+                Math.floor( Math.random() * 2.999 )
+            );
+        }
+        return result;
+    } else {
+        var selection = Math.floor( Math.random() * 2.999 );
+        return [selection, selection, selection];
     }
-    return result;
 }
 
 function prepareMachine(result) {
