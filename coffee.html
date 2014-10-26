@@ -33,40 +33,12 @@
   </div><div class="button-container"><div class="button" id="btn-pull-container"><button id="btn-pull">Pull lever</button></div><div id="btn-reset-container" class="button"><button id="btn-reset">Play again?</button></div></div>
   <div id="result-display"></div>
   <script id="first-script" type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-  <script type="text/javascript" src="js/game_functions.js"></script>
+  <script id="first-script" type="text/javascript" src="js/game.js"></script>
   <script type="text/javascript">
       $.noConflict();
   </script>
   <script type="text/javascript">
-      jQuery( document ).ready( function() {
-          // prepareMachine( generateResult() );
-          // console.log("event listener added: resetGame()");
-          // resetBtn.addEventListener('click', function() {
-          //     resetReels();
-          // });
-          var leverBtn = document.getElementById('btn-pull');
-          var resetBtn = document.getElementById('btn-reset');
-          var reel1 = document.getElementById('reel-1');
-          var reel2 = document.getElementById('reel-2');
-          var reel3 = document.getElementById('reel-3');
-          var slotSettings = {
-              left: ["-450px", "-330px", "-210px"],
-              middle: ["-210px", "-450px", "-330px"],
-              right: ["-330px", "-210px", "-450px"]
-          }
-          setTimeout(function(){
-              reel1.style.webkitAnimationPlayState = "paused";
-              reel2.style.webkitAnimationPlayState = "paused";
-              reel3.style.webkitAnimationPlayState = "paused";
-              // leverBtn.addEventListener('click', function() {
-              //     pullLever(reel1, reel2, reel3, slotSettings, leverBtn);
-              // });
-              // resetBtn.addEventListener('click', function() {
-
-              // });
-          });
-          debugger
-      });
+      jQuery( document ).ready(game.initialize);
   </script>
 </body>
 </html>

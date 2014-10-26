@@ -1,21 +1,4 @@
 
-function generateResult() {
-    // console.log("CoffeeSlots is ready!");
-    // console.log("1) generateResult()");
-    var result = [];
-    var winOrLose = Math.round(Math.random());
-    if (winOrLose === 0) {
-        for(var i = 0; i < 3; i++) {
-            result.push(
-                Math.floor( Math.random() * 2.999 )
-            );
-        }
-        return result;
-    } else {
-        var selection = Math.floor( Math.random() * 2.999 );
-        return [selection, selection, selection];
-    }
-}
 
 function prepareMachine(result) {
     // console.log("2) prepareMachine()");
@@ -44,38 +27,24 @@ function pullLever(reel1, reel2, reel3, slotSettings, button) {
     reel2.style.top = slotSettings["middle"][result[1]];
     reel3.style.top = slotSettings["right"][result[2]];
     button.setAttribute("disabled", "");
-    window.setTimeout( function () {
-        reel1.id = 'reel-1-temp';
-        reel2.id = 'reel-2-temp';
-        reel3.id = 'reel-3-temp';
-        // resultMessage( checkResult(result) );
-        resultMessage(
-            checkResult(generateResult()),
-
-        );
+    // window.setTimeout( function () {
+    //     reel1.id = 'reel-1-temp';
+    //     reel2.id = 'reel-2-temp';
+    //     reel3.id = 'reel-3-temp';
+    //     // resultMessage( checkResult(result) );
+    //     resultMessage(
+    //         checkResult(generateResult()),
+    //         // displayNode,
+    //         // resetBtn
+    //     );
         
-    }, 5000 );
+    // }, 5000 );
 }
 
-function checkResult(result) {
-    // console.log("4) checkResult()");
-    if ((result[0] === 0) && (result[1] === 0) && (result[2] === 0)) {
-        return "You win a cup of coffee!";
-    } else if ((result[0] === 1) && (result[1] === 1) && (result[2] === 1)) {
-        return "You win a shot of espresso!";
-    } else if ((result[0] === 2) && (result[1] === 2) && (result[2] === 2)) {
-        return "You win a cup of tea!";
-    } else {
-        return "You lose! No hot drinks for you!";
-    }
-}
 
-function foo() {
-    console.log(reel1);
-}
 
 function resultMessage(message, displayNode, resetBtn) {
-    // console.log("5) resultMessage()");
+    console.log("resultMessage() invoked");
     // var msg = document.getElementById('result-display');
     // msg.innerHTML = message;
     displayNode.innerHTML = message;
