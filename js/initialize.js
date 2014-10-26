@@ -1,5 +1,6 @@
 (function() {
     console.log("Initialzing important variables for game...");
+    resetBtn = document.getElementById('btn-reset');
     reel1 = document.getElementById('reel-1');
     reel2 = document.getElementById('reel-2');
     reel3 = document.getElementById('reel-3');

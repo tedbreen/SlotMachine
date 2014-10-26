@@ -39,6 +39,10 @@
   <script type="text/javascript">
     jQuery( document ).ready( function() {
         prepareMachine( generateResult() );
+        console.log("event listener added: resetGame()");
+        resetBtn.addEventListener('click', function() {
+            resetReels();
+        });
     });
   </script>
 </body>
