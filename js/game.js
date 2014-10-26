@@ -4,10 +4,20 @@ var game = {
     reel1: document.getElementById('reel-1'),
     reel2: document.getElementById('reel-2'),
     reel3: document.getElementById('reel-3'),
+    msgDisplay: document.getElementById('result-display'),
     slotSettings: {
       left: ["-450px", "-330px", "-210px"],
       middle: ["-210px", "-450px", "-330px"],
       right: ["-330px", "-210px", "-450px"]
+    },
+    spinReels: function() {
+        console.log("spinReels() invoked");
+        this.reel1.style.webkitAnimationPlayState = "running";
+        this.reel2.style.webkitAnimationPlayState = "running";
+        this.reel3.style.webkitAnimationPlayState = "running";
+        this.reel1.style.animationPlayState = "running";
+        this.reel2.style.animationPlayState = "running";
+        this.reel3.style.animationPlayState = "running";
     },
     pauseReels: function() {
         console.log("pauseReels() invoked");
@@ -17,6 +27,12 @@ var game = {
         this.reel1.style.animationPlayState = "paused";
         this.reel2.style.animationPlayState = "paused";
         this.reel3.style.animationPlayState = "paused";
+    },
+    setReels: function(result) {
+        console.log("setReels() invoked");
+        this.reel1.style.top = this.slotSettings["left"][result[0]];
+        this.reel2.style.top = this.slotSettings["middle"][result[1]];
+        this.reel3.style.top = this.slotSettings["right"][result[2]];
     },
     checkResult: function(result) {
         console.log("checkResult() invoked");
@@ -35,20 +51,21 @@ var game = {
 game.initialize = function() {
     console.log("initialize() invoked");
     var result;
+    var message;
     game.pauseReels();
     game.resetBtn.setAttribute("disabled", "");
     game.leverBtn.addEventListener('click', function() {
         console.log("lever button was clicked");
         game.leverBtn.setAttribute("disabled", "");
+        game.spinReels();
         if (result = game.generateResult()) {
-            var message = game.checkResult( result );
-            console.log(message);
+            game.setReels(result);
+            message = game.checkResult(result);
         }
-        
-        // create a display message for result
-        // spin reels
-        // stop reels on result
-        game.resetBtn.removeAttribute('disabled');
+        setTimeout( function() {
+            game.msgDisplay.innerHTML = message;
+            game.resetBtn.removeAttribute('disabled');
+        }, 5000);
     });
     game.resetBtn.addEventListener('click', function() {
         console.log("reset button was clicked");
@@ -59,6 +76,11 @@ game.initialize = function() {
         game.leverBtn.removeAttribute('disabled');
     });
 };
+
+// game.resultMessage = function(message) {
+//     console.log("resultMessage() invoked");
+//     game.msgDisplay.innerHTML = message;
+// }
 
 game.generateResult = function() {
     console.log("generateResult() invoked");
