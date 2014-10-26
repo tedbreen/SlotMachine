@@ -34,6 +34,22 @@ var game = {
         this.reel2.style.top = this.slotSettings["middle"][result[1]];
         this.reel3.style.top = this.slotSettings["right"][result[2]];
     },
+    generateResult: function() {
+        console.log("generateResult() invoked");
+        var result = [];
+        var winOrLose = Math.round(Math.random());
+        if (winOrLose === 0) {
+            for(var i = 0; i < 3; i++) {
+                result.push(
+                    Math.floor( Math.random() * 2.999 )
+                );
+            }
+            return result;
+        } else {
+            var selection = Math.floor( Math.random() * 2.999 );
+            return [selection, selection, selection];
+        }
+    },
     checkResult: function(result) {
         console.log("checkResult() invoked");
         if ((result[0] === 0) && (result[1] === 0) && (result[2] === 0)) {
@@ -54,19 +70,8 @@ game.initialize = function() {
     var message;
     game.pauseReels();
     game.resetBtn.setAttribute("disabled", "");
-    game.leverBtn.addEventListener('click', function() {
-        console.log("lever button was clicked");
-        game.leverBtn.setAttribute("disabled", "");
-        game.spinReels();
-        if (result = game.generateResult()) {
-            game.setReels(result);
-            message = game.checkResult(result);
-        }
-        setTimeout( function() {
-            game.msgDisplay.innerHTML = message;
-            game.resetBtn.removeAttribute('disabled');
-        }, 5000);
-    });
+    game.leverBtn.addEventListener('click', game.leverEvent);
+    // finish reset button event, then refactor!!
     game.resetBtn.addEventListener('click', function() {
         console.log("reset button was clicked");
         game.resetBtn.setAttribute("disabled", "");
@@ -77,25 +82,16 @@ game.initialize = function() {
     });
 };
 
-// game.resultMessage = function(message) {
-//     console.log("resultMessage() invoked");
-//     game.msgDisplay.innerHTML = message;
-// }
-
-game.generateResult = function() {
-    console.log("generateResult() invoked");
-    var result = [];
-    var winOrLose = Math.round(Math.random());
-    if (winOrLose === 0) {
-        for(var i = 0; i < 3; i++) {
-            result.push(
-                Math.floor( Math.random() * 2.999 )
-            );
-        }
-        return result;
-    } else {
-        var selection = Math.floor( Math.random() * 2.999 );
-        return [selection, selection, selection];
+game.leverEvent = function() {
+    console.log("lever button was clicked");
+    game.leverBtn.setAttribute("disabled", "");
+    game.spinReels();
+    if (result = game.generateResult()) {
+        game.setReels(result);
+        message = game.checkResult(result);
     }
-}
-
+    setTimeout( function() {
+        game.msgDisplay.innerHTML = message;
+        game.resetBtn.removeAttribute('disabled');
+    }, 5000);
+};

@@ -41,16 +41,6 @@ function pullLever(reel1, reel2, reel3, slotSettings, button) {
     // }, 5000 );
 }
 
-
-
-function resultMessage(message, displayNode, resetBtn) {
-    console.log("resultMessage() invoked");
-    // var msg = document.getElementById('result-display');
-    // msg.innerHTML = message;
-    displayNode.innerHTML = message;
-    resetBtn.removeAttribute('disabled');
-}
-
 function resetReels() {
     // console.log("6) resetReels()");
     jQuery('div#reel-1-temp').animate({ top: "-450px"});
@@ -85,4 +75,8 @@ function resetGame() {
     } else {
         console.log("well, that didn't work");
     }
+}
+
+game.leverEvent = function() {
+    
 }
