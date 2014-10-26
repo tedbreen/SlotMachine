@@ -38,7 +38,7 @@ function pullLever(button, result) {
         reel2.id = 'reel-2-temp';
         reel3.id = 'reel-3-temp';
         resultMessage( checkResult(result) );
-    }, 8000 );
+    }, 5000 );
 }
 
 function checkResult(result) {
