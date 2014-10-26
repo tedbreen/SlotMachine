@@ -1,6 +1,7 @@
+
 function generateResult() {
-    console.log("CoffeeSlots is ready!");
-    console.log("1) generateResult()");
+    // console.log("CoffeeSlots is ready!");
+    // console.log("1) generateResult()");
     var result = [];
     var winOrLose = Math.round(Math.random());
     if (winOrLose === 0) {
@@ -17,7 +18,7 @@ function generateResult() {
 }
 
 function prepareMachine(result) {
-    console.log("2) prepareMachine()");
+    // console.log("2) prepareMachine()");
     resetBtn.setAttribute("disabled", "");
     var div = document.getElementById('btn-pull-container');
     // cloning button's parent div to remove previous event listeners
@@ -30,8 +31,9 @@ function prepareMachine(result) {
     });
 }
 
-function pullLever(button, result) {
-    console.log("3) pullLever()");
+// function pullLever(button, result) {
+function pullLever(reel1, reel2, reel3, slotSettings, button) {
+    // console.log("3) pullLever()");
     reel1.style.webkitAnimationPlayState = "running";
     reel2.style.webkitAnimationPlayState = "running";
     reel3.style.webkitAnimationPlayState = "running";
@@ -46,12 +48,17 @@ function pullLever(button, result) {
         reel1.id = 'reel-1-temp';
         reel2.id = 'reel-2-temp';
         reel3.id = 'reel-3-temp';
-        resultMessage( checkResult(result) );
+        // resultMessage( checkResult(result) );
+        resultMessage(
+            checkResult(generateResult()),
+
+        );
+        
     }, 5000 );
 }
 
 function checkResult(result) {
-    console.log("4) checkResult()");
+    // console.log("4) checkResult()");
     if ((result[0] === 0) && (result[1] === 0) && (result[2] === 0)) {
         return "You win a cup of coffee!";
     } else if ((result[0] === 1) && (result[1] === 1) && (result[2] === 1)) {
@@ -63,15 +70,20 @@ function checkResult(result) {
     }
 }
 
-function resultMessage(message) {
-    console.log("5) resultMessage()");
-    var msg = document.getElementById('result-display');
-    msg.innerHTML = message;
+function foo() {
+    console.log(reel1);
+}
+
+function resultMessage(message, displayNode, resetBtn) {
+    // console.log("5) resultMessage()");
+    // var msg = document.getElementById('result-display');
+    // msg.innerHTML = message;
+    displayNode.innerHTML = message;
     resetBtn.removeAttribute('disabled');
 }
 
 function resetReels() {
-    console.log("6) resetReels()");
+    // console.log("6) resetReels()");
     jQuery('div#reel-1-temp').animate({ top: "-450px"});
     jQuery('div#reel-2-temp').animate({ top: "-450px"});
     jQuery('div#reel-3-temp').animate({
@@ -82,7 +94,7 @@ function resetReels() {
 }
 
 function resetGame() {
-    console.log("7) resetGame()");
+    // console.log("7) resetGame()");
     var msg = document.getElementById('result-display');
     msg.innerHTML = "";
     // enable pull lever button
