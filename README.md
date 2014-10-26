@@ -1,6 +1,8 @@
 # Espresso Bar Slot Machine
 
-Engineers and designers enjoy a healthy dose of caffeine in the morning. They like to drink coffee, tea, or espresso. This slot machine awards lucky players one of these random beverages.
+Engineers and designers enjoy a healthy dose of caffeine in the morning. They like to drink coffee, tea, or espresso. This slot machine awards lucky players one of these random beverages.  URL:
+
+http://coffeeslots.s3-website-us-west-1.amazonaws.com/
 
 This slot machine has three reels:
 * The first reel has a coffee maker, a teapot, and an espresso machine.
