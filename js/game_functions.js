@@ -4,7 +4,6 @@ function generateResult() {
     var result = [];
     var winOrLose = Math.round(Math.random());
     if (winOrLose === 0) {
-        // you don't automatically win
         for(var i = 0; i < 3; i++) {
             result.push(
                 Math.floor( Math.random() * 2.999 )
