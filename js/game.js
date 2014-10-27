@@ -16,6 +16,7 @@
             var result;
             var message;
             game.pauseReels();
+            game.leverBtn.removeAttribute('disabled');
             game.resetBtn.setAttribute("disabled", "");
             game.leverBtn.addEventListener('click', game.leverEvent);
             game.resetBtn.addEventListener('click', game.resetEvent);
