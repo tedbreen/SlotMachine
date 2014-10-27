@@ -6,9 +6,9 @@ var game = {
     reel3: document.getElementById('reel-3'),
     msgDisplay: document.getElementById('result-display'),
     slotSettings: {
-      left: ["-450px", "-330px", "-210px"],
-      middle: ["-210px", "-450px", "-330px"],
-      right: ["-330px", "-210px", "-450px"]
+        left: ["-450px", "-330px", "-210px"],
+        middle: ["-210px", "-450px", "-330px"],
+        right: ["-330px", "-210px", "-450px"]
     },
     initialize: function() {
         console.log("initialize() invoked");
@@ -41,6 +41,7 @@ var game = {
     },
     spinReels: function() {
         console.log("spinReels() invoked");
+        game.resetIDS();
         game.reel1.style.webkitAnimationPlayState = "running";
         game.reel2.style.webkitAnimationPlayState = "running";
         game.reel3.style.webkitAnimationPlayState = "running";
@@ -67,22 +68,19 @@ var game = {
         console.log("resetReels() invoked");
         jQuery('div#reel-1').animate({ top: "-450px"});
         jQuery('div#reel-2').animate({ top: "-450px"});
-        jQuery('div#reel-3').animate(
-            { top: "-450px"},
-            1000,
-            function() {
-            game.resetAnimation();
-            console.log("WHOOOOOO");
+        jQuery('div#reel-3').animate({
+            top: "-450px"
         });
+        setTimeout(game.resetAnimation, 0);
     },
     resetIDS: function() {
+        console.log("resetIDS() invoked");
         game.reel1.id = 'reel-1';
         game.reel2.id = 'reel-2';
         game.reel3.id = 'reel-3';
     },
     resetAnimation: function() {
         console.log("resetAnimation() invoked");
-        // if
         game.reel1.id = "reel-1-temp";
         game.reel2.id = "reel-2-temp";
         game.reel3.id = "reel-3-temp";
