@@ -10,29 +10,82 @@ var game = {
       middle: ["-210px", "-450px", "-330px"],
       right: ["-330px", "-210px", "-450px"]
     },
+    initialize: function() {
+        console.log("initialize() invoked");
+        var result;
+        var message;
+        game.pauseReels();
+        game.resetBtn.setAttribute("disabled", "");
+        game.leverBtn.addEventListener('click', game.leverEvent);
+        game.resetBtn.addEventListener('click', game.resetEvent);
+    },
+    resetEvent: function() {
+        console.log("reset button was clicked");
+        game.resetBtn.setAttribute("disabled", "");
+        game.resetReels();
+        game.msgDisplay.innerHTML = "";
+        game.leverBtn.removeAttribute('disabled');
+    },
+    leverEvent: function() {
+        console.log("lever button was clicked");
+        game.leverBtn.setAttribute("disabled", "");
+        game.spinReels();
+        if (result = game.generateResult()) {
+            game.setReels(result);
+            message = game.checkResult(result);
+        }
+        setTimeout( function() {
+            game.msgDisplay.innerHTML = message;
+            game.resetBtn.removeAttribute('disabled');
+        }, 5000);
+    },
     spinReels: function() {
         console.log("spinReels() invoked");
-        this.reel1.style.webkitAnimationPlayState = "running";
-        this.reel2.style.webkitAnimationPlayState = "running";
-        this.reel3.style.webkitAnimationPlayState = "running";
-        this.reel1.style.animationPlayState = "running";
-        this.reel2.style.animationPlayState = "running";
-        this.reel3.style.animationPlayState = "running";
+        game.reel1.style.webkitAnimationPlayState = "running";
+        game.reel2.style.webkitAnimationPlayState = "running";
+        game.reel3.style.webkitAnimationPlayState = "running";
+        game.reel1.style.animationPlayState = "running";
+        game.reel2.style.animationPlayState = "running";
+        game.reel3.style.animationPlayState = "running";
     },
     pauseReels: function() {
         console.log("pauseReels() invoked");
-        this.reel1.style.webkitAnimationPlayState = "paused";
-        this.reel2.style.webkitAnimationPlayState = "paused";
-        this.reel3.style.webkitAnimationPlayState = "paused";
-        this.reel1.style.animationPlayState = "paused";
-        this.reel2.style.animationPlayState = "paused";
-        this.reel3.style.animationPlayState = "paused";
+        game.reel1.style.webkitAnimationPlayState = "paused";
+        game.reel2.style.webkitAnimationPlayState = "paused";
+        game.reel3.style.webkitAnimationPlayState = "paused";
+        game.reel1.style.animationPlayState = "paused";
+        game.reel2.style.animationPlayState = "paused";
+        game.reel3.style.animationPlayState = "paused";
     },
     setReels: function(result) {
         console.log("setReels() invoked");
-        this.reel1.style.top = this.slotSettings["left"][result[0]];
-        this.reel2.style.top = this.slotSettings["middle"][result[1]];
-        this.reel3.style.top = this.slotSettings["right"][result[2]];
+        game.reel1.style.top = game.slotSettings["left"][result[0]];
+        game.reel2.style.top = game.slotSettings["middle"][result[1]];
+        game.reel3.style.top = game.slotSettings["right"][result[2]];
+    },
+    resetReels: function() {
+        console.log("resetReels() invoked");
+        jQuery('div#reel-1').animate({ top: "-450px"});
+        jQuery('div#reel-2').animate({ top: "-450px"});
+        jQuery('div#reel-3').animate(
+            { top: "-450px"},
+            1000,
+            function() {
+            game.resetAnimation();
+            console.log("WHOOOOOO");
+        });
+    },
+    resetIDS: function() {
+        game.reel1.id = 'reel-1';
+        game.reel2.id = 'reel-2';
+        game.reel3.id = 'reel-3';
+    },
+    resetAnimation: function() {
+        console.log("resetAnimation() invoked");
+        // if
+        game.reel1.id = "reel-1-temp";
+        game.reel2.id = "reel-2-temp";
+        game.reel3.id = "reel-3-temp";
     },
     generateResult: function() {
         console.log("generateResult() invoked");
@@ -62,36 +115,4 @@ var game = {
             return "You lose! No hot drinks for you!";
         }
     }
-};
-
-game.initialize = function() {
-    console.log("initialize() invoked");
-    var result;
-    var message;
-    game.pauseReels();
-    game.resetBtn.setAttribute("disabled", "");
-    game.leverBtn.addEventListener('click', game.leverEvent);
-    // finish reset button event, then refactor!!
-    game.resetBtn.addEventListener('click', function() {
-        console.log("reset button was clicked");
-        game.resetBtn.setAttribute("disabled", "");
-        // move reels back into position
-        // clear display
-        // start reel animations again, then pause them
-        game.leverBtn.removeAttribute('disabled');
-    });
-};
-
-game.leverEvent = function() {
-    console.log("lever button was clicked");
-    game.leverBtn.setAttribute("disabled", "");
-    game.spinReels();
-    if (result = game.generateResult()) {
-        game.setReels(result);
-        message = game.checkResult(result);
-    }
-    setTimeout( function() {
-        game.msgDisplay.innerHTML = message;
-        game.resetBtn.removeAttribute('disabled');
-    }, 5000);
-};
+}

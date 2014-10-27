@@ -1,22 +1,4 @@
-
-
-function prepareMachine(result) {
-    // console.log("2) prepareMachine()");
-    resetBtn.setAttribute("disabled", "");
-    var div = document.getElementById('btn-pull-container');
-    // cloning button's parent div to remove previous event listeners
-    var divClone = div.cloneNode(true);
-    div.parentNode.replaceChild(divClone, div);
-    var pullBtn = document.getElementById("btn-pull");
-    console.log("event listener added: pullLever()");
-    pullBtn.addEventListener("click", function() {
-        pullLever(pullBtn, result);
-    });
-}
-
-// function pullLever(button, result) {
 function pullLever(reel1, reel2, reel3, slotSettings, button) {
-    // console.log("3) pullLever()");
     reel1.style.webkitAnimationPlayState = "running";
     reel2.style.webkitAnimationPlayState = "running";
     reel3.style.webkitAnimationPlayState = "running";
@@ -41,19 +23,7 @@ function pullLever(reel1, reel2, reel3, slotSettings, button) {
     // }, 5000 );
 }
 
-function resetReels() {
-    // console.log("6) resetReels()");
-    jQuery('div#reel-1-temp').animate({ top: "-450px"});
-    jQuery('div#reel-2-temp').animate({ top: "-450px"});
-    jQuery('div#reel-3-temp').animate({
-        top: "-450px"
-    }, 1000, function() {
-        resetGame();
-    });
-}
-
 function resetGame() {
-    // console.log("7) resetGame()");
     var msg = document.getElementById('result-display');
     msg.innerHTML = "";
     // enable pull lever button
@@ -75,8 +45,4 @@ function resetGame() {
     } else {
         console.log("well, that didn't work");
     }
-}
-
-game.leverEvent = function() {
-    
 }
